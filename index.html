@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stratégie Viralité TikTok — Afrobeats</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #1a1a1a;
+    --border: #222;
+    --accent: #FF5C00;
+    --accent2: #FFD600;
+    --accent3: #00E5A0;
+    --text: #f0ede6;
+    --muted: #6b6b6b;
+    --tag-bg: #1e1e1e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 48px 40px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,92,0,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .header h1 span { color: var(--accent); }
+
+  .header-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--muted);
+  }
+
+  .meta-pill .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent3);
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+
+  .tab {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* CONTENT */
+  .content {
+    padding: 40px;
+    max-width: 1200px;
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* SECTION TITLE */
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .header, .tabs, .content { padding-left: 20px; padding-right: 20px; }
+  }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover { border-color: #333; }
+
+  .card-accent-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .card-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--tag-bg);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .tag.orange { background: rgba(255,92,0,0.12); color: var(--accent); border-color: rgba(255,92,0,0.2); }
+  .tag.yellow { background: rgba(255,214,0,0.1); color: var(--accent2); border-color: rgba(255,214,0,0.2); }
+  .tag.green { background: rgba(0,229,160,0.1); color: var(--accent3); border-color: rgba(0,229,160,0.2); }
+
+  /* HOOK BOX */
+  .hook-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    font-size: 13px;
+    color: #d0ccc4;
+  }
+
+  /* FORMAT ROW */
+  .format-row {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .format-row:last-child { border-bottom: none; }
+
+  .format-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .format-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .format-desc {
+    font-size: 13px;
+    color: #909090;
+    line-height: 1.5;
+  }
+
+  .format-views {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent3);
+    white-space: nowrap;
+  }
+
+  /* WEEK CALENDAR */
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .week-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 12px;
+  }
+
+  .day-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .day-type {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .day-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .day-off .day-name { color: #333; }
+  .day-off .day-type { color: #444; }
+  .day-off .day-desc { color: #333; }
+  .day-off { border-color: #1a1a1a; }
+
+  /* PRIORITY BAR */
+  .priority-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .priority-row:last-child { border-bottom: none; }
+
+  .priority-label {
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .priority-bar-wrap {
+    width: 120px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .priority-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  /* RULE BOX */
+  .rule-box {
+    background: rgba(255, 92, 0, 0.06);
+    border: 1px solid rgba(255, 92, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .rule-box .rule-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .rule-box p {
+    font-size: 13px;
+    color: #c0bdb7;
+    line-height: 1.6;
+  }
+
+  /* SPACER */
+  .spacer { margin-top: 32px; }
+  .spacer-sm { margin-top: 16px; }
+
+  /* CROSSNICHE BADGE */
+  .crossniche {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    background: rgba(255,214,0,0.08);
+    border: 1px solid rgba(255,214,0,0.15);
+    border-radius: 100px;
+    padding: 3px 8px;
+    margin-bottom: 8px;
+  }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+  /* CHECKLIST */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-circle {
+    width: 20px; height: 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-text { font-size: 13px; color: #b0b0b0; line-height: 1.5; }
+  .check-text strong { color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Stratégie Viralité 2026</div>
+  <h1>TikTok & Instagram<br><span>Afrobeats.</span> Face cam. Maximum vues.</h1>
+  <div class="header-meta">
+    <div class="meta-pill"><span class="dot"></span> Basé sur le Viral Playbook SGE</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--accent)"></span> Chanteur · Beatmaker · Producteur</div>
+    <div class="meta-pill"><span class="dot" style="background:var(--accent2)"></span> Formats niche + crossniche adaptés</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showPanel('formats')">Formats</div>
+  <div class="tab" onclick="showPanel('hooks')">Hooks</div>
+  <div class="tab" onclick="showPanel('trends')">Trends</div>
+  <div class="tab" onclick="showPanel('planning')">Planning</div>
+  <div class="tab" onclick="showPanel('regles')">Règles d'or</div>
+</div>
+
+<div class="content">
+
+  <!-- FORMATS PANEL -->
+  <div class="panel active" id="panel-formats">
+    <div class="section-label">12 formats classés par potentiel viral — calibrés Afrobeats</div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent)"></div>
+        <div class="card-num">FORMAT 01 · STAR</div>
+        <h3>Réaction en direct à ton propre son</h3>
+        <p>Tu poses un beat ou tu écoutes ton propre mix pour la première fois depuis longtemps — et tu filmes ta réaction sincère. Ou tu fais écouter à un proche, un inconnu, ta famille. Les pleurs, les hochements de tête, le mouvement instinctif au groove afro = or pur.</p>
+        <div class="tags">
+          <span class="tag orange">Mécanisme : preuve sociale</span>
+          <span class="tag green">Ref. : 11.6M → 35M vues</span>
+          <span class="tag">Face cam obligatoire</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent)"></div>
+        <div class="card-num">FORMAT 02 · STAR</div>
+        <h3>Making-of beat en 60 secondes</h3>
+        <p>Time-lapse ou real-time de la création d'un beat afro. Montre les samples, les drums qui s'empilent, le moment où le groove "pop". La fascination du processus invisible est universelle — musicien ou pas, tout le monde est captivé.</p>
+        <div class="tags">
+          <span class="tag orange">Mécanisme : mystère dévoilé</span>
+          <span class="tag green">Ref. : 9.6M → 19.1M vues</span>
+          <span class="tag">Format répétable × 20</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent2)"></div>
+        <div class="card-num">FORMAT 03 · HIGH</div>
+        <h3>Performance surprise dans la rue</h3>
+        <p>Tu chantes ou tu poses un beat dans un lieu public et tu filmes les passants. Quelqu'un s'arrête, commence à danser, sourit malgré lui — cette seconde vaut des millions de vues. L'Afrobeats dans la rue a un effet magnétique visuel immédiat.</p>
+        <div class="tags">
+          <span class="tag yellow">Mécanisme : choc émotionnel</span>
+          <span class="tag green">Ref. : 1.6M → 35M vues</span>
+          <span class="tag">Facile à filmer</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent2)"></div>
+        <div class="card-num">FORMAT 04 · HIGH</div>
+        <h3>Avant/Après — Ton évolution sonore</h3>
+        <p>Premier beat que t'as jamais fait vs le dernier. Première voix enregistrée vs maintenant. La progression datée et chiffrée est imbattable. Universel : tout le monde aime voir quelqu'un grandir. L'Afrobeats se prête parfaitement à ça — le son évolue vite et fort.</p>
+        <div class="tags">
+          <span class="tag yellow">Mécanisme : transformation</span>
+          <span class="tag green">Ref. : 11.6M vues</span>
+          <span class="tag">Émotion + fierté</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent2)"></div>
+        <div class="card-num">FORMAT 05 · HIGH</div>
+        <div class="crossniche">↗ Crossniche lifestyle / dev perso</div>
+        <h3>"Putting myself in timeout" — Confession artiste</h3>
+        <p>Tu te mets en scène dans un moment d'autocritique drôle ou vulnérable sur ta vie d'artiste. "Putting myself in timeout because I spent 4h sur un hi-hat à 3h du mat." Humour + authenticité + identification = combo viral parfait.</p>
+        <div class="tags">
+          <span class="tag yellow">Trend active : 12.5M vues</span>
+          <span class="tag">Crossniche lifestyle</span>
+          <span class="tag">Face cam ✓</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: var(--accent2)"></div>
+        <div class="card-num">FORMAT 06 · HIGH</div>
+        <div class="crossniche">↗ Crossniche dev perso / build in public</div>
+        <h3>Build in public — La carrière en live</h3>
+        <p>Tu documentes la construction de ton projet : un EP, un son, un clip. Chaque vidéo = une étape. "Jour 12 du projet X — voici où j'en suis." L'audience devient investie dans ta réussite avant même de connaître ta musique. 30M+ vues documentés sur ce format.</p>
+        <div class="tags">
+          <span class="tag yellow">Mécanisme : narration en cours</span>
+          <span class="tag green">Ref. : 30M+ vues</span>
+          <span class="tag">Série répétable</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #444)"></div>
+        <div class="card-num">FORMAT 07 · SOLID</div>
+        <h3>Unfinished Hook — Tu coupes au meilleur moment</h3>
+        <p>Tu joues un extrait de ton son, tu arrives au drop ou au hook qui tue — et tu coupes. Texte à l'écran : "je sais pas encore si je vais sortir ça…" L'incomplétude force la sauvegarde, le commentaire, et le suivi de compte.</p>
+        <div class="tags">
+          <span class="tag">Mécanisme : incomplétude</span>
+          <span class="tag">Ref. : 837K → 1.9M vues</span>
+          <span class="tag">Sauvegarde maximale</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #444)"></div>
+        <div class="card-num">FORMAT 08 · SOLID</div>
+        <div class="crossniche">↗ Crossniche humour / pop culture</div>
+        <h3>Tier List de tes propres sons</h3>
+        <p>Tu fais une tier list de tes beats ou tes chansons avec des expressions drôles et honnêtes. "Ce beat S-tier mais je savais même pas ce que je faisais." L'humour + l'auto-dérision + la musique = combo communauté fort.</p>
+        <div class="tags">
+          <span class="tag">Crossniche humour</span>
+          <span class="tag">Commentaires activés</span>
+          <span class="tag">Face cam ✓</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #444)"></div>
+        <div class="card-num">FORMAT 09 · SOLID</div>
+        <h3>iPhone Notes — Paroles / Drafts bruts</h3>
+        <p>Screen recording de tes notes de paroles inachevées, titres jamais sortis, phrases délirantes de 3h du mat. "Mes paroles que j'oserai jamais sortir." Accès au privé = attachement fort. Pour un artiste afro : les drafts en français, anglais, langues africaines = identité unique.</p>
+        <div class="tags">
+          <span class="tag">Trend active : 7.8M+ vues</span>
+          <span class="tag">Effort minimal</span>
+          <span class="tag">Mystère activé</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #444)"></div>
+        <div class="card-num">FORMAT 10 · SOLID</div>
+        <div class="crossniche">↗ Crossniche culture / identité</div>
+        <h3>"Dis-moi ce que t'écoutes, je te dis qui t'es"</h3>
+        <p>Défi identitaire qui invite les gens à commenter. Tu proposes des profils d'auditeurs Afrobeats avec humour et précision culturelle. Génère des centaines de commentaires, booste l'algo, crée de la tribu autour de ton contenu.</p>
+        <div class="tags">
+          <span class="tag">Mécanisme : identité tribale</span>
+          <span class="tag green">Ref. : 9.2M vues</span>
+          <span class="tag">Commentaires × ∞</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #333)"></div>
+        <div class="card-num">FORMAT 11 · BONUS</div>
+        <div class="crossniche">↗ Crossniche tech / surprise</div>
+        <h3>Cover d'un son trending dans ton style Afro</h3>
+        <p>Tu prends un son TikTok trending (pop, rap fr, drill) et tu en fais une version Afrobeats en 24h. Le clash de styles crée la curiosité. Tu captes l'audience du son original ET tu montres ton univers. Double distribution gratuite.</p>
+        <div class="tags">
+          <span class="tag">Amplificateur algo</span>
+          <span class="tag">Découverte tardive</span>
+          <span class="tag">Réactivité 24h</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #333)"></div>
+        <div class="card-num">FORMAT 12 · BONUS</div>
+        <h3>Slideshow mood — Le son devient l'ambiance</h3>
+        <p>2 à 4 photos ou clips qui incarnent l'univers de ton son. Effort minimal, résultats consistants. Pour l'Afrobeats : couleurs saturées, instants de vie, moments de connexion. Le son DEVIENT une esthétique que les gens veulent utiliser.</p>
+        <div class="tags">
+          <span class="tag">Ref. : 7.5M → 8.6M vues</span>
+          <span class="tag">Audio viral autonome</span>
+          <span class="tag">Effort minimal</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HOOKS PANEL -->
+  <div class="panel" id="panel-hooks">
+    <div class="section-label">Hooks calibrés Afrobeats — Les 1-3 premières secondes décident tout</div>
+
+    <div class="rule-box">
+      <div class="rule-title">Règle SGE fondamentale</div>
+      <p>"Your hook is 100% of it." — Ne dis pas ce que tu vas montrer. Crée un vide que seule la vidéo complète peut remplir. Le hook frappe avant que la musique joue.</p>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE A · VULNÉRABILITÉ</div>
+        <h3>Hooks d'honnêteté créative</h3>
+        <div class="hook-box">"J'ai écrit ce son la nuit où j'ai failli tout arrêter."</div>
+        <div class="hook-box">"Ce beat existe depuis 2 ans. J'ai jamais osé le sortir."</div>
+        <div class="hook-box">"Je vous joue le son que j'ai supprimé 4 fois."</div>
+        <div class="hook-box">"J'ai failli vendre ce beat. J'aurais tout perdu."</div>
+        <p style="margin-top:12px">Formule : <strong>[durée de rétention]</strong> + <strong>[acte de courage]</strong></p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE B · IDENTITÉ TRIBALE</div>
+        <h3>Hooks qui sélectionnent une tribu</h3>
+        <div class="hook-box">"Ce son c'est pour ceux qui font de la musique à minuit quand tout le monde dort."</div>
+        <div class="hook-box">"Si t'as jamais ouvert Ableton à 4h du mat, ce son est pas pour toi."</div>
+        <div class="hook-box">"J'ai fait ce beat pour tous ceux qui portent leur culture sans s'excuser."</div>
+        <p style="margin-top:12px">Formule : <strong>[exclusion/sélection d'une tribu]</strong> + <strong>[émotion hyper-spécifique]</strong></p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE C · DRAMA CRÉATIF</div>
+        <h3>Hooks de tension narrative</h3>
+        <div class="hook-box">"On m'a dit que mon son sonnait 'trop africain' pour marcher en France."</div>
+        <div class="hook-box">"Ce producteur a refusé de travailler avec moi. Voici ce que j'ai fait après."</div>
+        <div class="hook-box">"J'avais vendu ce sample. J'aurais pas dû."</div>
+        <div class="hook-box">"Le label voulait que je change mon son. Voici ma réponse."</div>
+        <p style="margin-top:12px">Formule : <strong>[opposition externe]</strong> + <strong>[identité défendue]</strong></p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE D · PREUVE CHIFFRÉE</div>
+        <h3>Hooks de momentum</h3>
+        <div class="hook-box">"Ce beat a été fait en 8 minutes. Il a changé ma vie."</div>
+        <div class="hook-box">"Ça fait 3 ans que je fais de l'Afrobeats à Nantes. Voici la différence."</div>
+        <div class="hook-box">"Ce son a été streamé X fois et je comprends toujours pas pourquoi."</div>
+        <p style="margin-top:12px">Formule : <strong>[chiffre inattendu]</strong> + <strong>[tension effort/résultat]</strong></p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE E · CLIFFHANGER</div>
+        <h3>Hooks incomplets — Mystère forcé</h3>
+        <div class="hook-box">"Cette chanson parle d'une personne précise. Elle sait qui elle est."</div>
+        <div class="hook-box">"J'allais pas sortir ça… mais…"</div>
+        <div class="hook-box">"Personne a remarqué ce que j'ai glissé à 1:47 dans ce son."</div>
+        <div class="hook-box">"J'ai trouvé le sample parfait. Je peux pas vous dire d'où il vient."</div>
+        <p style="margin-top:12px">Formule : <strong>[phrase ouverte]</strong> qui ne se ferme que dans la vidéo</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CATÉGORIE F · SPÉCIFIQUE AFRO</div>
+        <h3>Hooks identité culturelle</h3>
+        <div class="hook-box">"J'ai samplé un rythme que ma famille joue depuis des générations."</div>
+        <div class="hook-box">"Voici ce que l'Afrobeats sounds comme quand c'est fait depuis Nantes."</div>
+        <div class="hook-box">"Ce beat mélange 3 cultures différentes. Essaie de les retrouver."</div>
+        <div class="hook-box">"J'écris mes paroles en 3 langues. Voici pourquoi je m'arrête pas."</div>
+        <p style="margin-top:12px">Formule : <strong>[ancrage culturel spécifique]</strong> + <strong>[curiosité ou provocation]</strong></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TRENDS PANEL -->
+  <div class="panel" id="panel-trends">
+    <div class="section-label">Trends actives 2026 — Adaptations Afrobeats directement applicables</div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent2)"></div>
+        <span class="crossniche">Trend active · 4.4M → 12.5M vues</span>
+        <h3>"My Entry Song 2026"</h3>
+        <p>Positionne ton son comme "l'hymne d'une époque" pour ton audience. Invite les gens à l'adopter comme leur entry song pour cette année ou cette période de leur vie.</p>
+        <div class="hook-box">"Si ce son correspond à comment tu veux vivre 2026, c'est ton entry song."</div>
+        <div class="tags">
+          <span class="tag yellow">Immédiatement applicable</span>
+          <span class="tag">Slideshow ou face cam</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent2)"></div>
+        <span class="crossniche">Trend active · 12.5M vues</span>
+        <h3>"Putting myself in timeout"</h3>
+        <p>Auto-callout drôle sur les décisions créatives irrationnelles. Ultra-identifiable pour quiconque fait de la musique.</p>
+        <div class="hook-box">"Putting myself in timeout because I spent 6 hours on a hi-hat that lasts 2 seconds."</div>
+        <div class="hook-box">"Putting myself in timeout because je release mes sons à 3h du mat sans les relire."</div>
+        <div class="tags">
+          <span class="tag yellow">Humour + authenticité</span>
+          <span class="tag">Face cam ✓</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent2)"></div>
+        <span class="crossniche">Trend active · 16.8M vues</span>
+        <h3>"Here's the thing" — Overthinking musical</h3>
+        <p>Une pensée non filtrée, trop réelle, sur la création musicale. Monologue face cam, naturel, spontané.</p>
+        <div class="hook-box">"Okay but here's the thing — pourquoi les sons qu'on pense être nuls touchent toujours les gens ?"</div>
+        <div class="hook-box">"Here's the thing — je passe plus de temps à décider si je sors le son qu'à le faire."</div>
+        <div class="tags">
+          <span class="tag yellow">Face cam naturel</span>
+          <span class="tag">Commentaires activés</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent2)"></div>
+        <span class="crossniche">Trend active · 17.8M vues</span>
+        <h3>"Not drunk, just together" — Connexion studio</h3>
+        <p>Clips de moments de connexion vraie pendant les sessions : rires, moments off, énergie du groupe. Associe ton son à ces moments — il devient émotionnel.</p>
+        <div class="hook-box">Film les moments "off" du studio ou des sessions. L'énergie naturelle d'une session Afrobeats est déjà du contenu.</div>
+        <div class="tags">
+          <span class="tag yellow">Vibes studio</span>
+          <span class="tag">Partage organique</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <span class="crossniche">Trend active · 7.8M+ vues</span>
+        <h3>"Show your iPhone Notes"</h3>
+        <p>Screen recording de tes notes de paroles brutes, drafts abandonnés, titres jamais sortis. L'accès au privé crée un attachement fort et différencie ton compte.</p>
+        <div class="hook-box">"Mes notes de paroles que j'oserai jamais sortir — pour l'instant."</div>
+        <div class="tags">
+          <span class="tag green">Effort minimal</span>
+          <span class="tag">Mystère + proximité</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <span class="crossniche">Trend active · 7.5M vues</span>
+        <h3>Plan A vs Plan B</h3>
+        <p>Les deux chemins de vie. Pour toi : Plan A = le chemin "sage" (études, stabilité). Plan B = l'artiste que tu veux vraiment être. Universellement identifiable, surtout dans la tranche 18–26 ans.</p>
+        <div class="hook-box">2 slides : vie "sage" vs vie d'artiste assumée. Ton son en fond dans les deux.</div>
+        <div class="tags">
+          <span class="tag green">Universellement viral</span>
+          <span class="tag">Identité forte</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PLANNING PANEL -->
+  <div class="panel" id="panel-planning">
+    <div class="section-label">Calendrier de contenu hebdomadaire — 4 posts / semaine minimum</div>
+
+    <div class="rule-box">
+      <div class="rule-title">Principe de cadence SGE</div>
+      <p>La régularité > les coups. 4 posts/semaine avec un format cohérent valent plus que 1 post viral isolé. L'algorithme de fidélité récompense la constance.</p>
+    </div>
+
+    <div class="spacer-sm"></div>
+
+    <div class="week-grid">
+      <div class="day-card">
+        <div class="day-name">Lundi</div>
+        <div class="day-type">🎹 Process</div>
+        <div class="day-desc">Making-of beat ou session studio 60 sec. Format répétable. Toujours le même cadre.</div>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Mardi</div>
+        <div class="day-type">🎤 Vocal / Son</div>
+        <div class="day-desc">Extrait de chanson, performance intime, unfinished hook coupé au moment parfait.</div>
+      </div>
+      <div class="day-card day-off">
+        <div class="day-name">Mercredi</div>
+        <div class="day-type" style="color:#444">— Off —</div>
+        <div class="day-desc">Ou post de rattrapage si un trend passe.</div>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Jeudi</div>
+        <div class="day-type">💬 Trending</div>
+        <div class="day-desc">Surf d'une trend active : "here's the thing", "timeout", iPhone notes ou cover afro d'un son trending.</div>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Vendredi</div>
+        <div class="day-type">🌍 Identité</div>
+        <div class="day-desc">Contenu culture / tribu : ton univers afro, tes influences, ce que tu veux représenter.</div>
+      </div>
+      <div class="day-card">
+        <div class="day-name">Samedi</div>
+        <div class="day-type">📱 Réaction</div>
+        <div class="day-desc">Réaction d'un proche à ton son, ou moment off studio, ou confession artiste face cam.</div>
+      </div>
+      <div class="day-card day-off">
+        <div class="day-name">Dimanche</div>
+        <div class="day-type" style="color:#444">— Rest —</div>
+        <div class="day-desc">Repos. Prépare le lundi.</div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="section-label">Rotation de formats — Ne jamais faire deux fois le même consécutivement</div>
+
+    <div class="card">
+      <div class="format-row">
+        <div class="format-num">×5</div>
+        <div>
+          <div class="format-name">Making-of beat 60 sec</div>
+          <div class="format-desc">Format star à rincer en priorité. Même structure, hooks différents. Test 5 angles avant d'en changer.</div>
+        </div>
+        <div class="format-views">★★★★★</div>
+      </div>
+      <div class="format-row">
+        <div class="format-num">×3</div>
+        <div>
+          <div class="format-name">Réaction proche / inconnu</div>
+          <div class="format-desc">Filmer la réaction authentique à ton son. Planifier 3 sessions avec personnes différentes.</div>
+        </div>
+        <div class="format-views">★★★★★</div>
+      </div>
+      <div class="format-row">
+        <div class="format-num">×4</div>
+        <div>
+          <div class="format-name">Trend surfée (timeout, here's the thing…)</div>
+          <div class="format-desc">Une par semaine minimum quand la trend est active. Réactivité = boost algo.</div>
+        </div>
+        <div class="format-views">★★★★</div>
+      </div>
+      <div class="format-row">
+        <div class="format-num">×2</div>
+        <div>
+          <div class="format-name">Performance surprise rue</div>
+          <div class="format-desc">Deux sessions par mois. Planifier avec un ami pour filmer proprement.</div>
+        </div>
+        <div class="format-views">★★★★</div>
+      </div>
+      <div class="format-row">
+        <div class="format-num">×1</div>
+        <div>
+          <div class="format-name">Build in public — Jour X du projet</div>
+          <div class="format-desc">Série hebdomadaire sur un projet en cours. Crée de l'anticipation et fidélise.</div>
+        </div>
+        <div class="format-views">★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGLES PANEL -->
+  <div class="panel" id="panel-regles">
+    <div class="section-label">Règles d'or — Ce qui fait la différence entre poster et exploser</div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <h3>✓ Le contenu précède la musique</h3>
+        <p>Le playbook SGE est formel : "The content goes viral first. The music follows." Tu dois d'abord faire ressentir quelque chose, ensuite faire écouter. Chaque vidéo existe avant que la musique joue.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <h3>✓ Même format × 20 avant de pivoter</h3>
+        <p>Quand tu trouves un format qui marche (ex. : making-of beat), tu l'exploites 20 fois avec des hooks et des angles différents. Pas de structure. La constance de format = reconnaissance algo + fidélité audience.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #ff4444"></div>
+        <h3>✗ Ne poster que ta musique</h3>
+        <p>"Écoutez mon nouveau son" n'est pas du contenu. C'est de la pub. L'audience TikTok ne veut pas être passive — elle veut être dans ton histoire. Donne-lui une raison de regarder avant de lui donner une raison d'écouter.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #ff4444"></div>
+        <h3>✗ Confondre vues et fanbase</h3>
+        <p>1.174B de vues, moins de 5K conversions (cas BigBean). Les vues virales ne font pas une fanbase. Une fanbase se construit par la régularité, la fidélité et les ponts entre contenu et écoute. Crée des séries, pas des coups.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <h3>✓ Les 4 ponts vers l'écoute</h3>
+        <p>Bio claire avec lien Spotify/Linktree. Commentaire pinné : "ce son est dispo, lien en bio". 5-10 sec de ton son en fond de chaque vidéo. Série "before I drop this song" pour transformer les spectateurs en fans avant la sortie.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <h3>✓ Parle émotions, pas technique</h3>
+        <p>"J'ai utilisé un Am7 inversé" = hook pour 5% des gens. "J'ai écrit ce son pour ceux qui savent plus quoi ressentir" = hook universel. La technique vient après l'attachement émotionnel. Toujours.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background:var(--accent3)"></div>
+        <h3>✓ L'audio viral autonome</h3>
+        <p>Extraire 15-30 sec de ton son le plus émotionnel, créer une vidéo template avec ce son, commenter en pinné "utilise ce son". Chaque reprise = ton nom dans le son = découverte organique. Tu deviens le son, pas juste l'artiste.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-accent-line" style="background: #ff4444"></div>
+        <h3>✗ Ignorer les trends parce que "c'est pas mon style"</h3>
+        <p>Les sons trending sont des amplificateurs algorithmiques gratuits. Un artiste qui adapte un trend à son univers afro gagne de la visibilité sans perdre son identité. L'adaptation, pas la copie — ça fait toute la différence.</p>
+      </div>
+
+    </div>
+
+    <div class="spacer"></div>
+    <div class="section-label">Checklist avant chaque publication</div>
+
+    <div class="card">
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Mon hook arrête le scroll dans les 2 premières secondes ?</strong> Visuellement ou textuellement, ça frappe avant que la musique joue.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Quelqu'un peut se reconnaître avant d'entendre ma musique ?</strong> L'identité miroir doit être activée.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Il y a une tension non résolue dans les 3 premières secondes ?</strong> Curiosité forcée = watch time augmenté.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Y a une raison de regarder jusqu'à la fin ?</strong> Révélation, réaction, performance, twist.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>La vidéo donne envie de sauvegarder, commenter ou partager ?</strong> Si non, reformule le hook.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Mon son est audible sans casque sur mobile ?</strong> Pour un artiste, la qualité audio des vidéos est non-négociable.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Il y a un pont clair vers l'écoute de ma musique ?</strong> CTA naturel, lien en bio, commentaire pinné.</div></div>
+      <div class="check-item"><div class="check-circle"></div><div class="check-text"><strong>Je posterais ça avec 0 abonnés ?</strong> Test d'authenticité final. Si oui, go.</div></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function showPanel(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
