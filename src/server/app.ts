@@ -15,6 +15,8 @@ import type { AgentEvent } from "../types.js";
 export function createApp() {
   const app = express();
   app.use(express.json({ limit: "2mb" }));
+  // Interface web (SPA statique, zéro build).
+  app.use(express.static(path.join(config.rootDir, "public")));
 
   const projects = new ProjectManager();
   const devServers = new DevServerManager();

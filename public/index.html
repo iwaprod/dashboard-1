@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenLovable</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <!-- Accueil : création / ouverture de projet -->
+  <section id="home" class="home">
+    <div class="home-inner">
+      <div class="brand">⚡ OpenLovable</div>
+      <h1>Que voulez-vous construire<span class="accent"> ?</span></h1>
+      <p class="tagline">Décrivez votre idée — l'agent génère un vrai projet React, visible en direct.</p>
+      <form id="create-form" class="create-form">
+        <textarea id="create-prompt" rows="3"
+          placeholder="Ex. : un portfolio élégant pour une photographe de mariage, avec galerie et page contact…"></textarea>
+        <div class="create-actions">
+          <input id="create-name" type="text" placeholder="Nom du projet (optionnel)" />
+          <button type="submit" id="create-btn">Créer le site →</button>
+        </div>
+      </form>
+      <div id="project-list" class="project-list"></div>
+    </div>
+  </section>
+
+  <!-- Espace de travail : chat + preview/code/historique -->
+  <section id="workspace" class="workspace hidden">
+    <header class="topbar">
+      <button id="back-btn" class="ghost" title="Retour aux projets">←</button>
+      <div class="project-name" id="project-title">—</div>
+      <div class="topbar-right">
+        <span id="status-dot" class="dot"></span>
+        <span id="status-text" class="status-text">prêt</span>
+      </div>
+    </header>
+    <div class="columns">
+      <aside class="chat">
+        <div id="messages" class="messages"></div>
+        <form id="chat-form" class="chat-form">
+          <textarea id="chat-input" rows="2" placeholder="Demandez une modification…"></textarea>
+          <button type="submit" id="send-btn">Envoyer</button>
+        </form>
+      </aside>
+      <main class="stage">
+        <nav class="tabs">
+          <button data-tab="preview" class="tab active">Aperçu</button>
+          <button data-tab="code" class="tab">Code</button>
+          <button data-tab="history" class="tab">Historique</button>
+          <span class="tabs-spacer"></span>
+          <button id="reload-preview" class="ghost" title="Recharger l'aperçu">⟳</button>
+          <a id="open-preview" class="ghost" target="_blank" title="Ouvrir dans un onglet">↗</a>
+        </nav>
+        <div id="tab-preview" class="tab-pane active">
+          <div id="preview-placeholder" class="placeholder">
+            <button id="start-preview" class="primary">▶ Démarrer l'aperçu</button>
+            <p class="hint">Lance un serveur de développement Vite pour ce projet.</p>
+          </div>
+          <iframe id="preview-frame" class="hidden" title="Aperçu du site"></iframe>
+        </div>
+        <div id="tab-code" class="tab-pane">
+          <div class="code-split">
+            <ul id="file-list" class="file-list"></ul>
+            <pre id="file-content" class="file-content">Sélectionnez un fichier…</pre>
+          </div>
+        </div>
+        <div id="tab-history" class="tab-pane">
+          <ul id="snapshot-list" class="snapshot-list"></ul>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

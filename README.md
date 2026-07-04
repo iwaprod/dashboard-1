@@ -112,6 +112,12 @@ npm run smoke       # test de bout en bout en mode mock (création, tour d'agent
 - **Versions restaurables** : chaque tour = un commit git dans le projet ; l'API expose l'historique et la restauration, comme l'historique d'édits de Lovable.
 - **Un tour à la fois par projet** (verrou), résultats d'outils parallèles regroupés dans un seul message, historique rejouable au format API brut (blocs `tool_use`/`tool_result`/`thinking` conservés).
 
-## Étape suivante
+## Interface web
 
-L'interface web (chat + preview iframe + explorateur de fichiers + historique de versions) pourra consommer cette API telle quelle — tout le flux temps réel passe déjà par SSE.
+Une interface type Lovable est servie par le même serveur sur `http://localhost:3080/` (`public/`, SPA sans build) :
+
+- **Accueil** : « Que voulez-vous construire ? » — crée le projet et envoie le premier prompt à l'agent.
+- **Chat** (gauche) : réponses streamées en direct, puces d'outils (`✏️ écrit src/App.tsx`), statut build, versions enregistrées.
+- **Aperçu** (droite) : iframe sur le serveur Vite du projet, rechargée après chaque tour.
+- **Code** : explorateur de fichiers + lecture.
+- **Historique** : liste des versions git avec bouton « Restaurer ».
