@@ -37,6 +37,12 @@ export interface ProjectMeta {
   name: string;
   createdAt: string;
   updatedAt: string;
+  /** Modèle de départ (galerie), le cas échéant. */
+  templateId?: string;
+  /** Épinglé dans "Starred". */
+  starred?: boolean;
+  /** Dernière ouverture (onglet "Recently viewed" / "Recents"). */
+  lastOpenedAt?: string;
 }
 
 export interface Snapshot {

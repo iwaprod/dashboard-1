@@ -10,6 +10,7 @@ import { runBuildCheck } from "../preview/buildCheck.js";
 import { runAgentTurn } from "../agent/orchestrator.js";
 import { createLLMClient } from "../llm/client.js";
 import { listFiles, readFile } from "../tools/fileTools.js";
+import { listTemplates } from "../projects/templates.js";
 import type { AgentEvent } from "../types.js";
 
 export function createApp() {
@@ -35,6 +36,9 @@ export function createApp() {
     res.json({ ok: true, model: config.model, mock: config.mockLLM });
   });
 
+  // --- Modèles (galerie "Lovable templates") ---
+  app.get("/api/templates", (_req, res) => res.json(listTemplates()));
+
   // --- Projets ---
   app.get("/api/projects", (_req, res) => res.json(projects.list()));
 
@@ -46,12 +50,25 @@ export function createApp() {
         res.status(400).json({ error: "'name' is required" });
         return;
       }
-      const meta = await projects.create(name, { installDeps: req.body?.installDeps !== false });
+      const meta = await projects.create(name, {
+        installDeps: req.body?.installDeps !== false,
+        templateId: req.body?.templateId ? String(req.body.templateId) : undefined,
+      });
       res.status(201).json(meta);
     }),
   );
 
   app.get("/api/projects/:id", (req, res) => res.json(projects.get(req.params.id)));
+
+  // Marquage favori + suivi d'ouverture (onglets Starred / Recently viewed).
+  app.patch("/api/projects/:id", (req, res) => {
+    const store = new ProjectStore(projects.projectDir(req.params.id));
+    const meta = store.readMeta();
+    if (typeof req.body?.starred === "boolean") meta.starred = req.body.starred;
+    if (req.body?.opened === true) meta.lastOpenedAt = new Date().toISOString();
+    store.writeMeta(meta);
+    res.json(meta);
+  });
 
   app.delete("/api/projects/:id", (req, res) => {
     devServers.stop(req.params.id);

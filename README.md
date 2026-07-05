@@ -116,8 +116,14 @@ npm run smoke       # test de bout en bout en mode mock (création, tour d'agent
 
 Une interface type Lovable est servie par le même serveur sur `http://localhost:3080/` (`public/`, SPA sans build) :
 
-- **Accueil** : « Que voulez-vous construire ? » — crée le projet et envoie le premier prompt à l'agent.
-- **Chat** (gauche) : réponses streamées en direct, puces d'outils (`✏️ écrit src/App.tsx`), statut build, versions enregistrées.
-- **Aperçu** (droite) : iframe sur le serveur Vite du projet, rechargée après chaque tour.
-- **Code** : explorateur de fichiers + lecture.
-- **Historique** : liste des versions git avec bouton « Restaurer ».
+- **Dashboard** : barre latérale complète (Dashboard, Search `Ctrl K`, Resources, Connectors, All projects, Starred, Created by me, Shared with me, Recents, cartes Share/Upgrade), hero dégradé « What's the vision ? », barre de prompt avec menu **Build ▾** (projet vierge ou modèle), onglets *My projects / Recently viewed / Lovable templates*, recherche.
+- **Galerie de modèles** : **34 templates fonctionnels** (`catalog/`) — chacun est une vraie app React prête à ouvrir : Inspo Canvas, Lovable Slides, Maison, Brand Kit, Jordan Studio, Expense, EventFlow, Atlas CRM, Launchlist, The Journal, Pulse, Welcome Back, Atelier, Bistro Lumière, FORM, Haven Realty, Wanderlog, CourseCraft, Wavelength, Curriculum, Linkhub, Docs, Changelog, Statuswatch, Kanban Flow, Margins, Companion, Habit Loop, Recipe Box, Workfolio, Commons, Coming Soon, NOVAE, Léa & Marius.
+- **Espace projet** : chat streamé (puces d'outils, statut build, versions), aperçu Vite live, explorateur de code, historique git restaurable, épinglage ★.
+
+### API modèles
+
+| Méthode | Route | Description |
+|---|---|---|
+| `GET` | `/api/templates` | Catalogue des 34 modèles |
+| `POST` | `/api/projects` `{name, templateId?}` | Créer un projet, éventuellement depuis un modèle |
+| `PATCH` | `/api/projects/:id` `{starred?, opened?}` | Épingler / marquer comme ouvert |

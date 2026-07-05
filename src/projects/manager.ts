@@ -6,6 +6,7 @@ import { config } from "../config.js";
 import type { ProjectMeta } from "../types.js";
 import { ProjectStore } from "./store.js";
 import { initRepo } from "./snapshots.js";
+import { applyTemplate } from "./templates.js";
 
 /** Cycle de vie des projets : création depuis le template, listing, accès, suppression. */
 export class ProjectManager {
@@ -36,14 +37,21 @@ export class ProjectManager {
     return new ProjectStore(this.projectDir(id)).readMeta();
   }
 
-  /** Crée un projet : copie du template, npm install, git init + commit initial. */
-  async create(name: string, options: { installDeps?: boolean } = {}): Promise<ProjectMeta> {
+  /** Crée un projet : copie du template de base (+ overlay d'un modèle de la galerie), npm install, git init. */
+  async create(name: string, options: { installDeps?: boolean; templateId?: string } = {}): Promise<ProjectMeta> {
     const id = `${slugify(name) || "projet"}-${crypto.randomBytes(3).toString("hex")}`;
     const dir = path.join(this.workspaceDir, id);
     fs.cpSync(config.templateDir, dir, { recursive: true });
+    if (options.templateId) applyTemplate(dir, options.templateId);
 
     const now = new Date().toISOString();
-    const meta: ProjectMeta = { id, name, createdAt: now, updatedAt: now };
+    const meta: ProjectMeta = {
+      id,
+      name,
+      createdAt: now,
+      updatedAt: now,
+      ...(options.templateId ? { templateId: options.templateId } : {}),
+    };
     new ProjectStore(dir).init(meta);
 
     if (options.installDeps !== false) {
