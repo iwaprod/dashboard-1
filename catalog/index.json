@@ -1,0 +1,579 @@
+[
+  {
+    "id": "inspo-canvas",
+    "name": "Inspo Canvas",
+    "description": "Spatial canvas for collecting, arranging, and sharing visual inspiration",
+    "category": "Canvas",
+    "thumb": {
+      "from": "#f7c8d8",
+      "to": "#e8b4f0",
+      "text": "Inspo",
+      "style": "grid"
+    }
+  },
+  {
+    "id": "lovable-slides",
+    "name": "Lovable Slides",
+    "description": "Code-powered presentation builder",
+    "category": "Slides",
+    "thumb": {
+      "from": "#ff4fa0",
+      "to": "#7b5cff",
+      "text": "Slides",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "maison",
+    "name": "Maison",
+    "description": "Editorial home goods storefront",
+    "category": "E-commerce",
+    "thumb": {
+      "from": "#efe9df",
+      "to": "#d8ccba",
+      "text": "Objects of Quiet Beauty",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "brand-kit",
+    "name": "Brand Kit",
+    "description": "Turn any website or brand asset into a structured kit of colors, type and logos",
+    "category": "Branding",
+    "thumb": {
+      "from": "#f6f1e7",
+      "to": "#eadfcc",
+      "text": "Get their brand.",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "jordan-studio",
+    "name": "Jordan Studio",
+    "description": "Dark portfolio for a creative studio",
+    "category": "Portfolio",
+    "thumb": {
+      "from": "#0a0a0c",
+      "to": "#26262e",
+      "text": "JORDAN STUDIO",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "expense",
+    "name": "Expense",
+    "description": "Personal finance tracker with budgets and insights",
+    "category": "Dashboard",
+    "thumb": {
+      "from": "#04130b",
+      "to": "#0f3d24",
+      "text": "EXPENSE",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "eventflow",
+    "name": "EventFlow",
+    "description": "The event platform where ideas become gatherings",
+    "category": "Landing page",
+    "thumb": {
+      "from": "#fff4ec",
+      "to": "#ffd9c4",
+      "text": "The event platform",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "atlas-crm",
+    "name": "Atlas CRM",
+    "description": "Lightweight CRM with pipeline, contacts and notes",
+    "category": "Internal tools",
+    "thumb": {
+      "from": "#0e1726",
+      "to": "#1d3050",
+      "text": "Atlas",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "launchlist",
+    "name": "Launchlist",
+    "description": "Waitlist landing page with email capture and social proof",
+    "category": "Landing page",
+    "thumb": {
+      "from": "#12102e",
+      "to": "#3d2f8f",
+      "text": "Join the list",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "the-journal",
+    "name": "The Journal",
+    "description": "Editorial blog with featured stories and archive",
+    "category": "Blog",
+    "thumb": {
+      "from": "#faf7f2",
+      "to": "#efe8dc",
+      "text": "The Journal",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "pulse",
+    "name": "Pulse",
+    "description": "SaaS landing with feature grid, pricing and FAQ",
+    "category": "Landing page",
+    "thumb": {
+      "from": "#061418",
+      "to": "#0d3b40",
+      "text": "Pulse",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "welcome-back",
+    "name": "Welcome Back",
+    "description": "Authentication screens with a clean dashboard shell",
+    "category": "SaaS",
+    "thumb": {
+      "from": "#0b1220",
+      "to": "#16233d",
+      "text": "Welcome back.",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "atelier-photo",
+    "name": "Atelier",
+    "description": "Minimal photography portfolio with fullscreen grid",
+    "category": "Portfolio",
+    "thumb": {
+      "from": "#f5f5f4",
+      "to": "#d6d3d1",
+      "text": "ATELIER",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "bistro",
+    "name": "Bistro Lumière",
+    "description": "Restaurant site with menu and reservations",
+    "category": "Restaurant",
+    "thumb": {
+      "from": "#231a12",
+      "to": "#4a3524",
+      "text": "Bistro Lumière",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "form-studio",
+    "name": "FORM",
+    "description": "Bold gym & fitness studio landing with class schedule",
+    "category": "Fitness",
+    "thumb": {
+      "from": "#18181b",
+      "to": "#7f1d1d",
+      "text": "FORM",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "haven-realty",
+    "name": "Haven Realty",
+    "description": "Real estate listings with property cards and filters",
+    "category": "Real estate",
+    "thumb": {
+      "from": "#f8fafc",
+      "to": "#dbeafe",
+      "text": "Haven",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "wanderlog",
+    "name": "Wanderlog",
+    "description": "Travel journal with itinerary and destination guides",
+    "category": "Travel",
+    "thumb": {
+      "from": "#0c4a6e",
+      "to": "#38bdf8",
+      "text": "Wanderlog",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "course-craft",
+    "name": "CourseCraft",
+    "description": "Online course landing with curriculum and testimonials",
+    "category": "Education",
+    "thumb": {
+      "from": "#1e1b4b",
+      "to": "#6d28d9",
+      "text": "Learn it.",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "podcast-wave",
+    "name": "Wavelength",
+    "description": "Podcast site with episode player and show notes",
+    "category": "Media",
+    "thumb": {
+      "from": "#170f24",
+      "to": "#5b21b6",
+      "text": "Wavelength",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "resume-cv",
+    "name": "Curriculum",
+    "description": "Personal résumé site with experience timeline",
+    "category": "Personal",
+    "thumb": {
+      "from": "#fafaf9",
+      "to": "#e7e5e4",
+      "text": "Résumé",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "linkhub",
+    "name": "Linkhub",
+    "description": "Link-in-bio page with themes and click tracking",
+    "category": "Personal",
+    "thumb": {
+      "from": "#fda4af",
+      "to": "#fb7185",
+      "text": "@you",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "docs-site",
+    "name": "Docs",
+    "description": "Documentation site with sidebar navigation and search",
+    "category": "Developer",
+    "thumb": {
+      "from": "#0f172a",
+      "to": "#1e293b",
+      "text": "Docs",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "changelog",
+    "name": "Changelog",
+    "description": "Product changelog with release timeline",
+    "category": "Developer",
+    "thumb": {
+      "from": "#052e16",
+      "to": "#166534",
+      "text": "v2.4.0",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "status-page",
+    "name": "Statuswatch",
+    "description": "Public status page with uptime history",
+    "category": "Developer",
+    "thumb": {
+      "from": "#022c22",
+      "to": "#065f46",
+      "text": "All systems go",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "kanban-flow",
+    "name": "Kanban Flow",
+    "description": "Drag-style task board with columns and labels",
+    "category": "Internal tools",
+    "thumb": {
+      "from": "#1e3a8a",
+      "to": "#3b82f6",
+      "text": "To do → Done",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "notes-app",
+    "name": "Margins",
+    "description": "Minimal notes app with folders and instant search",
+    "category": "Productivity",
+    "thumb": {
+      "from": "#fffbeb",
+      "to": "#fde68a",
+      "text": "Margins",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "chat-ui",
+    "name": "Companion",
+    "description": "AI chat interface with conversation history",
+    "category": "AI",
+    "thumb": {
+      "from": "#111827",
+      "to": "#374151",
+      "text": "Ask anything",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "habit-loop",
+    "name": "Habit Loop",
+    "description": "Habit tracker with streaks and weekly heatmap",
+    "category": "Productivity",
+    "thumb": {
+      "from": "#4c1d95",
+      "to": "#a855f7",
+      "text": "21 days",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "recipe-box",
+    "name": "Recipe Box",
+    "description": "Recipe collection with ingredients and steps",
+    "category": "Food",
+    "thumb": {
+      "from": "#fff7ed",
+      "to": "#fed7aa",
+      "text": "Recipe Box",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "job-board",
+    "name": "Workfolio",
+    "description": "Job board with filters and company profiles",
+    "category": "Marketplace",
+    "thumb": {
+      "from": "#082f49",
+      "to": "#0369a1",
+      "text": "We're hiring",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "community-hub",
+    "name": "Commons",
+    "description": "Community forum with threads and upvotes",
+    "category": "Community",
+    "thumb": {
+      "from": "#fef2f2",
+      "to": "#fecaca",
+      "text": "Commons",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "coming-soon",
+    "name": "Coming Soon",
+    "description": "Teaser page with countdown and email capture",
+    "category": "Landing page",
+    "thumb": {
+      "from": "#09090b",
+      "to": "#27272a",
+      "text": "Soon.",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "music-artist",
+    "name": "NOVAE",
+    "description": "Music artist page with tour dates and releases",
+    "category": "Media",
+    "thumb": {
+      "from": "#2e1065",
+      "to": "#e11d48",
+      "text": "NOVAE",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "wedding",
+    "name": "Léa & Marius",
+    "description": "Wedding site with RSVP, schedule and venue",
+    "category": "Event",
+    "thumb": {
+      "from": "#fdf2f8",
+      "to": "#fbcfe8",
+      "text": "Léa & Marius",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "destination-racing",
+    "name": "Destination Racing",
+    "description": "Écurie de course GT — équipe, calendrier et expériences pilote",
+    "category": "Motorsport",
+    "group": "iwa",
+    "thumb": {
+      "from": "#0a0a0a",
+      "to": "#7f1d1d",
+      "text": "RACING",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "ardamez",
+    "name": "Ardamez",
+    "description": "Émaillerie française — plaques de rue, enseignes et tables de bistrot émaillées",
+    "category": "Artisanat",
+    "group": "iwa",
+    "thumb": {
+      "from": "#1e3a8a",
+      "to": "#3b5bd8",
+      "text": "PLAQUES ÉMAILLÉES",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "biometrics-house",
+    "name": "Biometrics House",
+    "description": "Le bâtiment le plus biométrique du monde — showroom vivant et bureaux à louer",
+    "category": "Immobilier",
+    "group": "iwa",
+    "thumb": {
+      "from": "#020617",
+      "to": "#0e7490",
+      "text": "BIOMETRICS",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "powerful-medical",
+    "name": "Powerful Medical",
+    "description": "IA cardiologique — interprétation d'ECG assistée, certifiée",
+    "category": "MedTech",
+    "group": "iwa",
+    "thumb": {
+      "from": "#fef2f2",
+      "to": "#fecaca",
+      "text": "AI cardiology",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "veridas",
+    "name": "Veridas",
+    "description": "Vérification d'identité numérique — biométrie faciale et vocale",
+    "category": "Identité",
+    "group": "iwa",
+    "thumb": {
+      "from": "#1e1b4b",
+      "to": "#7c3aed",
+      "text": "Verify anyone",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "electree",
+    "name": "Electree",
+    "description": "Fournisseur d'électricité et de gaz verts — foyers, entreprises et solaire piloté",
+    "category": "Énergie",
+    "group": "iwa",
+    "thumb": {
+      "from": "#052e16",
+      "to": "#16a34a",
+      "text": "⚡ Charge",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "sparring",
+    "name": "Sparring",
+    "description": "Service juridique & stratégie pour les visionnaires de la tech",
+    "category": "Juridique",
+    "group": "iwa",
+    "thumb": {
+      "from": "#18181b",
+      "to": "#f59e0b",
+      "text": "SPARRING",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "wincent",
+    "name": "Wincent",
+    "description": "Baguettes de batterie fabriquées en Suède — boutique et artistes",
+    "category": "E-commerce",
+    "group": "iwa",
+    "thumb": {
+      "from": "#0c0a09",
+      "to": "#ea580c",
+      "text": "WINCENT",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "lunter",
+    "name": "Lunter",
+    "description": "Marque alimentaire végétale — tofu et produits frais",
+    "category": "Agroalimentaire",
+    "group": "iwa",
+    "thumb": {
+      "from": "#f0fdf4",
+      "to": "#86efac",
+      "text": "Plant based.",
+      "style": "editorial"
+    }
+  },
+  {
+    "id": "socksfor1",
+    "name": "SocksFor1",
+    "description": "Boutique officielle d'un créateur gaming — merch et communauté",
+    "category": "Merch",
+    "group": "iwa",
+    "thumb": {
+      "from": "#4c1d95",
+      "to": "#db2777",
+      "text": "SOCKS",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "bloomreach",
+    "name": "Bloomreach",
+    "description": "Plateforme de personnalisation e-commerce — data, marketing, search",
+    "category": "SaaS B2B",
+    "group": "iwa",
+    "thumb": {
+      "from": "#0f172a",
+      "to": "#db2777",
+      "text": "Personalize",
+      "style": "gradient"
+    }
+  },
+  {
+    "id": "vacuumlabs",
+    "name": "Vacuumlabs",
+    "description": "Ingénierie logicielle fintech — équipes produit dédiées",
+    "category": "Agence",
+    "group": "iwa",
+    "thumb": {
+      "from": "#020617",
+      "to": "#14532d",
+      "text": "vacuumlabs",
+      "style": "dark"
+    }
+  },
+  {
+    "id": "midland-smart-repairs",
+    "name": "Midland Smart Repairs",
+    "description": "Carrosserie mobile — rayures, jantes et débosselage à domicile",
+    "category": "Automobile",
+    "group": "iwa",
+    "thumb": {
+      "from": "#1e3a8a",
+      "to": "#f97316",
+      "text": "SMART Repairs",
+      "style": "dark"
+    }
+  }
+]

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenLovable</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧡</text></svg>" />
+</head>
+<body>
+  <!-- ═══════════ DASHBOARD ═══════════ -->
+  <section id="home" class="dash">
+    <!-- Barre latérale -->
+    <aside class="side">
+      <div class="side-top">
+        <div class="side-logo">🧡</div>
+        <button class="side-collapse" title="Réduire">◧</button>
+      </div>
+      <button class="workspace-pill">
+        <span class="ws-avatar">A</span>
+        <span class="ws-name">Angel's Lovable</span>
+        <span class="ws-caret">▾</span>
+      </button>
+      <nav class="side-nav">
+        <button class="side-item active" data-nav="dashboard">🏠 <span>Dashboard</span></button>
+        <button class="side-item" data-nav="search">🔍 <span>Search</span><kbd>Ctrl K</kbd></button>
+        <button class="side-item" data-nav="resources">📚 <span>Resources</span></button>
+        <button class="side-item" data-nav="connectors">🔌 <span>Connectors</span></button>
+      </nav>
+      <div class="side-label">Projects</div>
+      <nav class="side-nav">
+        <button class="side-item" data-nav="all">▦ <span>All projects</span></button>
+        <button class="side-item" data-nav="starred">☆ <span>Starred</span></button>
+        <button class="side-item" data-nav="mine">👤 <span>Created by me</span></button>
+        <button class="side-item" data-nav="shared">🤝 <span>Shared with me</span></button>
+      </nav>
+      <div class="side-label">Recents</div>
+      <nav class="side-nav" id="recents-nav"></nav>
+      <div class="side-bottom">
+        <div class="side-card">
+          <div class="side-card-title">Share OpenLovable <span>🎁</span></div>
+          <div class="side-card-sub">100 credits per paid referral</div>
+        </div>
+        <div class="side-card upgrade">
+          <div class="side-card-title">Upgrade to Pro <span>⚡</span></div>
+          <div class="side-card-sub">Unlock more features</div>
+        </div>
+        <div class="side-footer">
+          <span class="ws-avatar">A</span>
+          <span class="side-mail">✉</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Zone principale -->
+    <div class="main" id="dash-main">
+      <div class="hero">
+        <button class="hero-pill">🧩 Connect all your tools <b>→</b></button>
+        <h1 id="hero-title">What's the vision, Angel?</h1>
+        <form id="create-form" class="promptbox">
+          <textarea id="create-prompt" rows="2" placeholder="Ask OpenLovable to create a website about…"></textarea>
+          <div class="promptbox-row">
+            <button type="button" class="pb-icon" id="attach-btn" title="Joindre">＋</button>
+            <span class="pb-spacer"></span>
+            <div class="pb-build">
+              <button type="button" class="pb-ghost" id="build-btn">Build <span class="ws-caret">▾</span></button>
+              <div class="pb-menu hidden" id="build-menu"></div>
+            </div>
+            <button type="button" class="pb-icon" title="Dicter">🎙</button>
+            <button type="submit" class="pb-send" id="create-btn" title="Envoyer">↑</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-bar">
+          <div class="gsearch">🔍 <input id="gallery-search" placeholder="Search" /></div>
+          <button class="gtab" data-gtab="projects">My projects</button>
+          <button class="gtab" data-gtab="recent">Recently viewed</button>
+          <button class="gtab active" data-gtab="templates">Lovable templates</button>
+          <button class="gtab" data-gtab="iwa">Modèles IWA</button>
+          <span class="tabs-spacer"></span>
+          <button class="gbrowse" id="browse-all">Browse all →</button>
+        </div>
+        <div id="gallery-grid" class="cards"></div>
+        <div id="gallery-empty" class="gallery-empty hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ESPACE DE TRAVAIL ═══════════ -->
+  <section id="workspace" class="workspace hidden">
+    <header class="topbar">
+      <button id="back-btn" class="ghost" title="Retour aux projets">←</button>
+      <div class="project-name" id="project-title">—</div>
+      <button id="star-btn" class="ghost" title="Épingler">☆</button>
+      <div class="topbar-right">
+        <span id="status-dot" class="dot"></span>
+        <span id="status-text" class="status-text">prêt</span>
+      </div>
+    </header>
+    <div class="columns">
+      <aside class="chat">
+        <div id="messages" class="messages"></div>
+        <form id="chat-form" class="chat-form">
+          <textarea id="chat-input" rows="2" placeholder="Demandez une modification…"></textarea>
+          <button type="submit" id="send-btn">Envoyer</button>
+        </form>
+      </aside>
+      <main class="stage">
+        <nav class="tabs">
+          <button data-tab="preview" class="tab active">Aperçu</button>
+          <button data-tab="code" class="tab">Code</button>
+          <button data-tab="history" class="tab">Historique</button>
+          <span class="tabs-spacer"></span>
+          <button id="reload-preview" class="ghost" title="Recharger l'aperçu">⟳</button>
+          <a id="open-preview" class="ghost" target="_blank" title="Ouvrir dans un onglet">↗</a>
+        </nav>
+        <div id="tab-preview" class="tab-pane active">
+          <div id="preview-placeholder" class="placeholder">
+            <button id="start-preview" class="primary">▶ Démarrer l'aperçu</button>
+            <p class="hint">Lance un serveur de développement Vite pour ce projet.</p>
+          </div>
+          <iframe id="preview-frame" class="hidden" title="Aperçu du site"></iframe>
+        </div>
+        <div id="tab-code" class="tab-pane">
+          <div class="code-split">
+            <ul id="file-list" class="file-list"></ul>
+            <pre id="file-content" class="file-content">Sélectionnez un fichier…</pre>
+          </div>
+        </div>
+        <div id="tab-history" class="tab-pane">
+          <ul id="snapshot-list" class="snapshot-list"></ul>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>
