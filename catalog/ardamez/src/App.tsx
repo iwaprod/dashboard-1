@@ -1,8 +1,8 @@
 const products = [
   { name: "Plaque de rue classique", desc: "Fond bleu, lettres blanches, bords bombés", price: "dès 89 €" },
   { name: "Numéro de maison", desc: "Rond ou carré, 12 coloris d'émail", price: "dès 29 €" },
-  { name: "Enseigne commerce", desc: "Sur mesure, pose comprise en option", price: "sur devis" },
-  { name: "Plaque muséale", desc: "Texte long, cuisson grand feu", price: "sur devis" },
+  { name: "Table de bistrot émaillée", desc: "Plateau émaillé au motif de votre choix", price: "sur devis" },
+  { name: "Enseigne & plaque publicitaire", desc: "Sur mesure, sérigraphie à la main", price: "sur devis" },
 ];
 
 export default function App() {
@@ -24,8 +24,9 @@ export default function App() {
           <p className="text-xs tracking-[0.3em] text-[#8a93ad]">ÉMAILLERIE FRANÇAISE — DEPUIS QUATRE GÉNÉRATIONS</p>
           <h2 className="mt-4 text-5xl font-bold leading-[1.08]">La plaque émaillée, cuite au grand feu.</h2>
           <p className="mt-5 leading-relaxed text-[#44507a]">
-            Acier embouti, émail vitrifié à 830 °C, couleurs inaltérables pendant un siècle.
-            Chaque plaque de rue, numéro ou enseigne sort de notre atelier breton, à la main.
+            Acier embouti, émail vitrifié au grand feu, couleurs inaltérables pendant un siècle.
+            Plaques de rue, enseignes et tables de bistrot sortent de notre atelier
+            de Nort-sur-Erdre, près de Nantes — sérigraphiés à la main, cuisson après chaque couleur.
           </p>
           <a href="#devis" className="mt-7 inline-block bg-[#1d2f5e] px-8 py-3 text-sm tracking-widest text-[#f4f1ea]">
             DEMANDER UN DEVIS
@@ -65,13 +66,13 @@ export default function App() {
           Nous fournissons mairies, musées, hôtels et particuliers exigeants, en France et au-delà.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm tracking-widest text-[#8a93ad]">
-          <span>✔ GARANTIE 25 ANS</span><span>✔ FABRIQUÉ EN BRETAGNE</span><span>✔ POSE PARTOUT EN FRANCE</span>
+          <span>✔ GARANTIE 25 ANS</span><span>✔ FABRIQUÉ EN FRANCE</span><span>✔ POSE PARTOUT EN FRANCE</span>
         </div>
       </section>
 
       <footer id="devis" className="bg-[#1d2f5e] px-8 py-10 text-center text-[#f4f1ea]">
         <p className="text-lg font-bold tracking-widest">ARDAMEZ — ÉMAILLERIE & SIGNALÉTIQUE</p>
-        <p className="mt-2 text-sm text-[#c8d2ee]">ZA du Vieux Four, Quimper · devis@ardamez.example · 02 98 00 00 00</p>
+        <p className="mt-2 text-sm text-[#c8d2ee]">Atelier de Nort-sur-Erdre, près de Nantes · devis@ardamez.example · 02 98 00 00 00</p>
       </footer>
     </div>
   );

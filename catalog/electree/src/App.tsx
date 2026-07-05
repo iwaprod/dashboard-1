@@ -1,72 +1,95 @@
+import { useState } from "react";
+
 const offers = [
-  { title: "Copropriétés", body: "Bornes partagées avec facturation individuelle par badge.", icon: "🏢" },
-  { title: "Entreprises", body: "Flottes et collaborateurs — supervision et rapports d'usage.", icon: "🚗" },
-  { title: "Commerces & hôtels", body: "Attirez une clientèle qui recharge pendant qu'elle consomme.", icon: "🏨" },
+  { icon: "⚡", title: "Électricité verte", body: "Courant issu de sources renouvelables, à prix transparent et fixe." },
+  { icon: "🔥", title: "Gaz naturel", body: "Tarifs suivis mois par mois, sans frais cachés ni surprise à l'échéance." },
+  { icon: "🛠", title: "Services du foyer", body: "Assistance dépannage, entretien chaudière et certificats énergétiques." },
+  { icon: "☀️", title: "Solaire intelligent", body: "Pilotage et optimisation de vos panneaux photovoltaïques par IA." },
 ];
 
 export default function App() {
+  const [zip, setZip] = useState("");
+  const [sent, setSent] = useState(false);
   return (
-    <div className="min-h-screen bg-[#052e16] font-sans text-emerald-50">
-      <header className="flex items-center justify-between px-8 py-5">
-        <span className="text-lg font-bold">⚡ electree</span>
-        <nav className="hidden gap-7 text-sm text-emerald-200/70 md:flex">
-          <a href="#offres" className="hover:text-white">Solutions</a>
-          <a href="#process" className="hover:text-white">Comment ça marche</a>
-          <a href="#devis" className="hover:text-white">Devis</a>
+    <div className="min-h-screen bg-white font-sans text-emerald-950">
+      <div className="bg-emerald-900 px-4 py-1.5 text-center text-xs font-medium text-emerald-100">
+        Plus de 260 000 foyers et entreprises nous font déjà confiance
+      </div>
+      <header className="flex items-center justify-between px-8 py-4 shadow-sm">
+        <span className="text-2xl font-black lowercase text-emerald-600">elec<span className="text-emerald-900">tree</span></span>
+        <nav className="hidden gap-7 text-sm font-medium text-emerald-900/70 md:flex">
+          <a href="#offres" className="hover:text-emerald-950">Électricité</a>
+          <a href="#offres" className="hover:text-emerald-950">Gaz</a>
+          <a href="#solaire" className="hover:text-emerald-950">Solaire</a>
+          <a href="#devis" className="hover:text-emerald-950">Espace client</a>
         </nav>
-        <button className="rounded-lg bg-emerald-400 px-4 py-2 text-sm font-bold text-emerald-950">Devis gratuit</button>
+        <a href="#devis" className="rounded-full bg-emerald-600 px-5 py-2 text-sm font-bold text-white">Changer d'offre</a>
       </header>
 
-      <section className="mx-auto grid max-w-6xl gap-12 px-8 py-20 md:grid-cols-2 md:items-center">
-        <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-emerald-400">Bornes de recharge — installation & exploitation</p>
-          <h1 className="mt-4 text-6xl font-extrabold leading-[1.03] tracking-tight">
-            Rechargez là où<br />la vie <span className="text-emerald-400">stationne</span>.
-          </h1>
-          <p className="mt-5 max-w-md text-emerald-200/70">
-            De l'étude électrique à la supervision 24/7 : nous installons et exploitons
-            vos bornes AC et DC, sans investissement initial si vous le souhaitez.
-          </p>
-          <div className="mt-8 flex gap-3">
-            <button className="rounded-xl bg-emerald-400 px-7 py-3 font-bold text-emerald-950">Étude gratuite</button>
-            <button className="rounded-xl border border-emerald-700 px-7 py-3 font-bold text-emerald-100">Nos références</button>
+      <section className="bg-gradient-to-b from-emerald-50 to-white px-8 py-20">
+        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-emerald-600">Fournisseur d'énergie depuis 2002</p>
+            <h1 className="mt-4 text-6xl font-black leading-[1.02] tracking-tight">
+              L'énergie, en<br /><span className="text-emerald-600">toute clarté</span>.
+            </h1>
+            <p className="mt-5 max-w-md text-lg text-emerald-900/70">
+              Électricité verte et gaz naturel pour les foyers et les entreprises —
+              des contrats lisibles, un prix honnête, un service qui répond.
+            </p>
+            <ul className="mt-6 space-y-2 text-sm font-semibold text-emerald-800">
+              <li>✔ Énergie achetée auprès de sources 100 % renouvelables</li>
+              <li>✔ Changement de fournisseur pris en charge de A à Z</li>
+              <li>✔ Sans engagement caché — résiliable simplement</li>
+            </ul>
           </div>
-        </div>
-        <div className="mx-auto w-64 rounded-[2rem] border border-emerald-700/60 bg-emerald-950/50 p-6 text-center">
-          <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-400 text-4xl text-emerald-950">⚡</div>
-          <p className="mt-4 text-sm text-emerald-300/70">Borne #E-208 · Parking Riviéra</p>
-          <p className="mt-3 text-5xl font-extrabold">67 %</p>
-          <p className="text-sm text-emerald-300/70">42 min restantes · 22 kW</p>
-          <div className="mt-4 h-2.5 rounded-full bg-emerald-900"><div className="h-2.5 w-2/3 rounded-full bg-emerald-400" /></div>
-          <p className="mt-4 text-xs text-emerald-400">3,84 € — arrêt automatique à 80 %</p>
+          <div id="devis" className="rounded-3xl border border-emerald-100 bg-white p-7 shadow-lg">
+            <h2 className="text-xl font-black">Estimez votre mensualité</h2>
+            {sent ? (
+              <p className="mt-6 rounded-2xl bg-emerald-50 p-5 font-semibold text-emerald-700">
+                ✓ Merci ! Votre estimation personnalisée arrive par email sous quelques minutes.
+              </p>
+            ) : (
+              <form className="mt-4 space-y-3" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+                <select className="w-full rounded-xl border border-emerald-200 px-4 py-3 outline-none focus:border-emerald-500">
+                  <option>Électricité</option><option>Gaz</option><option>Électricité + gaz</option>
+                </select>
+                <input value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="Code postal"
+                  className="w-full rounded-xl border border-emerald-200 px-4 py-3 outline-none focus:border-emerald-500" />
+                <input required type="email" placeholder="Email"
+                  className="w-full rounded-xl border border-emerald-200 px-4 py-3 outline-none focus:border-emerald-500" />
+                <button className="w-full rounded-xl bg-emerald-600 py-3.5 font-black text-white">Voir mon tarif</button>
+              </form>
+            )}
+            <p className="mt-3 text-center text-xs text-emerald-900/50">Sans engagement · réponse immédiate</p>
+          </div>
         </div>
       </section>
 
-      <section id="offres" className="mx-auto grid max-w-5xl gap-5 px-8 pb-16 md:grid-cols-3">
-        {offers.map((o) => (
-          <div key={o.title} className="rounded-2xl border border-emerald-800/60 bg-emerald-950/40 p-7">
-            <div className="text-3xl">{o.icon}</div>
-            <h3 className="mt-3 font-bold">{o.title}</h3>
-            <p className="mt-2 text-sm text-emerald-200/60">{o.body}</p>
-          </div>
-        ))}
-      </section>
-
-      <section id="process" className="border-t border-emerald-800/50 px-8 py-14">
-        <div className="mx-auto flex max-w-4xl flex-wrap justify-between gap-6 text-center">
-          {[["01", "Étude sur site"], ["02", "Installation certifiée"], ["03", "Mise en service"], ["04", "Exploitation 24/7"]].map(([n, l]) => (
-            <div key={n} className="min-w-32 flex-1">
-              <div className="text-3xl font-extrabold text-emerald-400">{n}</div>
-              <p className="mt-1 text-sm text-emerald-200/70">{l}</p>
+      <section id="offres" className="mx-auto max-w-5xl px-8 py-16">
+        <h2 className="text-center text-3xl font-black">Tout votre foyer, un seul fournisseur</h2>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {offers.map((o) => (
+            <div key={o.title} className="rounded-3xl border border-emerald-100 bg-emerald-50/50 p-6">
+              <div className="text-3xl">{o.icon}</div>
+              <h3 className="mt-3 font-bold">{o.title}</h3>
+              <p className="mt-1 text-sm text-emerald-900/60">{o.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <footer id="devis" className="bg-emerald-400 px-8 py-12 text-center text-emerald-950">
-        <h2 className="text-3xl font-extrabold">Votre parking peut rapporter.</h2>
-        <p className="mt-1 font-medium">Étude de faisabilité gratuite sous 48 h.</p>
-        <button className="mt-5 rounded-xl bg-emerald-950 px-8 py-3 font-bold text-emerald-50">Demander un devis</button>
+      <section id="solaire" className="bg-emerald-950 px-8 py-14 text-center text-emerald-50">
+        <h2 className="text-3xl font-black">Vos panneaux méritent un cerveau</h2>
+        <p className="mx-auto mt-2 max-w-lg text-emerald-200/80">
+          Notre plateforme connectée prédit la production, optimise l'autoconsommation
+          et réduit la facture des installations photovoltaïques.
+        </p>
+        <button className="mt-6 rounded-full bg-emerald-400 px-8 py-3 font-black text-emerald-950">Découvrir le pilotage solaire</button>
+      </section>
+
+      <footer className="px-8 py-8 text-center text-sm text-emerald-900/50">
+        electree — électricité & gaz verts · service client 7j/7 · Brno · Praha
       </footer>
     </div>
   );
