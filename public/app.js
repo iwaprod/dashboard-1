@@ -121,16 +121,12 @@ $("#browse-all").onclick = () => { activeGTab = "templates"; $("#gallery-search"
 $("#gallery-search").addEventListener("input", () => renderGallery());
 
 function thumbHtml(t) {
+  // Fond dégradé = état de chargement / repli ; par-dessus, la vraie capture du hero du modèle.
   const bg = `background:linear-gradient(135deg,${t.thumb.from},${t.thumb.to})`;
-  const darkText = t.thumb.style === "editorial";
-  let inner = "";
-  if (t.thumb.style === "grid") {
-    const cells = ["#fff8", "#fff5", "#fffb", "#fff6", "#fff9", "#fff4"].map((c) => `<i style="background:${c}"></i>`).join("");
-    inner = `<span class="t-grid">${cells}</span>`;
-  } else {
-    inner = `<span class="t-${t.thumb.style}" style="color:${darkText ? "#1d1a14" : "#fff"}">${escapeHtml(t.thumb.text ?? t.name)}</span>`;
-  }
-  return `<div class="card-thumb" style="${bg}"><span class="card-badge">${escapeHtml(t.category)}</span>${inner}</div>`;
+  return `<div class="card-thumb" style="${bg}">
+    <img class="thumb-shot" src="/thumbs/${encodeURIComponent(t.id)}.png" alt="" loading="lazy" onerror="this.remove()" />
+    <span class="card-badge">${escapeHtml(t.category)}</span>
+  </div>`;
 }
 
 function projectThumbHtml(p) {
@@ -138,6 +134,7 @@ function projectThumbHtml(p) {
   if (t) return thumbHtml({ ...t, category: t.name });
   const hue = [...p.id].reduce((a, c) => a + c.charCodeAt(0), 0) % 360;
   return `<div class="card-thumb" style="background:linear-gradient(135deg,hsl(${hue},45%,22%),hsl(${(hue + 40) % 360},50%,38%))">
+    <img class="thumb-shot" src="/thumbs/blank.png" alt="" loading="lazy" onerror="this.remove()" />
     <span class="card-badge">Projet</span><span class="t-gradient">${escapeHtml(p.name.slice(0, 18))}</span></div>`;
 }
 
