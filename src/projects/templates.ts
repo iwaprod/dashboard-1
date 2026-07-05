@@ -8,6 +8,8 @@ export interface TemplateMeta {
   name: string;
   description: string;
   category: string;
+  /** Collection : "lovable" (défaut) ou "iwa" (Modèles IWA). */
+  group?: "lovable" | "iwa";
   /** Couleurs de la vignette générée côté UI. */
   thumb: { from: string; to: string; text?: string; style: "gradient" | "editorial" | "dark" | "grid" };
 }

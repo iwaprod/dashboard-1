@@ -163,8 +163,12 @@ function renderGallery() {
     return;
   }
 
-  if (activeGTab === "templates") {
-    const list = templates.filter((t) => !q || (t.name + t.description + t.category).toLowerCase().includes(q));
+  if (activeGTab === "templates" || activeGTab === "iwa") {
+    const list = templates.filter(
+      (t) =>
+        (activeGTab === "iwa" ? t.group === "iwa" : t.group !== "iwa") &&
+        (!q || (t.name + t.description + t.category).toLowerCase().includes(q)),
+    );
     if (!list.length) return showEmpty(`Aucun modèle pour « ${escapeHtml(q)} »`);
     for (const t of list) grid.appendChild(templateCard(t));
     return;

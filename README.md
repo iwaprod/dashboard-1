@@ -119,6 +119,7 @@ Une interface type Lovable est servie par le même serveur sur `http://localhost
 - **Dashboard** : barre latérale complète (Dashboard, Search `Ctrl K`, Resources, Connectors, All projects, Starred, Created by me, Shared with me, Recents, cartes Share/Upgrade), hero dégradé « What's the vision ? », barre de prompt avec menu **Build ▾** (projet vierge ou modèle), onglets *My projects / Recently viewed / Lovable templates*, recherche.
 - **Galerie de modèles** : **34 templates fonctionnels** (`catalog/`) — chacun est une vraie app React prête à ouvrir : Inspo Canvas, Lovable Slides, Maison, Brand Kit, Jordan Studio, Expense, EventFlow, Atlas CRM, Launchlist, The Journal, Pulse, Welcome Back, Atelier, Bistro Lumière, FORM, Haven Realty, Wanderlog, CourseCraft, Wavelength, Curriculum, Linkhub, Docs, Changelog, Statuswatch, Kanban Flow, Margins, Companion, Habit Loop, Recipe Box, Workfolio, Commons, Coming Soon, NOVAE, Léa & Marius.
 - **Espace projet** : chat streamé (puces d'outils, statut build, versions), aperçu Vite live, explorateur de code, historique git restaurable, épinglage ★.
+- **Onglet « Modèles IWA »** : collection séparée de **13 modèles** recréés dans l'esprit de sites réels (écurie GT, émaillerie, biométrie, IA cardiologique, identité numérique, bornes de recharge, studios d'ingénierie, baguettes de batterie, alimentaire végétal, merch gaming, personnalisation e-commerce, fintech, carrosserie mobile) — contenus et designs originaux, groupés via le champ `group: "iwa"` du catalogue.
 
 ### API modèles
 
